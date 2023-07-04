@@ -20,21 +20,18 @@ part 'all_types.g.dart';
   TypedGoRoute<NumRoute>(path: 'num-route/:requiredNumField'),
   TypedGoRoute<DoubleRoute>(path: 'double-route/:requiredDoubleField'),
   TypedGoRoute<EnumRoute>(path: 'enum-route/:requiredEnumField'),
-  TypedGoRoute<EnhancedEnumRoute>(
-      path: 'enhanced-enum-route/:requiredEnumField'),
+  TypedGoRoute<EnhancedEnumRoute>(path: 'enhanced-enum-route/:requiredEnumField'),
   TypedGoRoute<StringRoute>(path: 'string-route/:requiredStringField'),
   TypedGoRoute<UriRoute>(path: 'uri-route/:requiredUriField'),
   TypedGoRoute<IterableRoute>(path: 'iterable-route'),
-  TypedGoRoute<IterableRouteWithDefaultValues>(
-      path: 'iterable-route-with-default-values'),
+  TypedGoRoute<IterableRouteWithDefaultValues>(path: 'iterable-route-with-default-values'),
 ])
 @immutable
 class AllTypesBaseRoute extends GoRouteData {
   const AllTypesBaseRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const BasePage<void>(
+  Widget build(BuildContext context, GoRouterState state) => const BasePage<void>(
         dataTitle: 'Root',
       );
 }
@@ -58,7 +55,7 @@ class BigIntRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('BigIntRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -84,7 +81,7 @@ class BoolRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('BoolRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -107,7 +104,7 @@ class DateTimeRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('DateTimeRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -133,7 +130,7 @@ class DoubleRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('DoubleRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -159,7 +156,7 @@ class IntRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('IntRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -185,7 +182,7 @@ class NumRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('NumRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -201,8 +198,7 @@ class EnumRoute extends GoRouteData {
   final PersonDetails enumFieldWithDefaultValue;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      BasePage<PersonDetails>(
+  Widget build(BuildContext context, GoRouterState state) => BasePage<PersonDetails>(
         dataTitle: 'EnumRoute',
         param: requiredEnumField,
         queryParam: enumField,
@@ -212,7 +208,7 @@ class EnumRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('EnumRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -228,8 +224,7 @@ class EnhancedEnumRoute extends GoRouteData {
   final SportDetails enumFieldWithDefaultValue;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      BasePage<SportDetails>(
+  Widget build(BuildContext context, GoRouterState state) => BasePage<SportDetails>(
         dataTitle: 'EnhancedEnumRoute',
         param: requiredEnumField,
         queryParam: enumField,
@@ -239,7 +234,7 @@ class EnhancedEnumRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('EnhancedEnumRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -265,7 +260,7 @@ class StringRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('StringRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -288,7 +283,7 @@ class UriRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('UriRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -361,7 +356,7 @@ class IterableRoute extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('IterableRoute'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -430,7 +425,7 @@ class IterableRouteWithDefaultValues extends GoRouteData {
   Widget drawerTile(BuildContext context) => ListTile(
         title: const Text('IterableRouteWithDefaultValues'),
         onTap: () => go(context),
-        selected: GoRouter.of(context).location == location,
+        selected: GoRouterState.of(context).location == location,
       );
 }
 
@@ -536,7 +531,7 @@ class BasePage<T> extends StatelessWidget {
               Text(
                 'Query param with default value: $queryParamWithDefaultValue',
               ),
-              SelectableText(GoRouter.of(context).location),
+              SelectableText(GoRouterState.of(context).location),
             ],
           ),
         ),

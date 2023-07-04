@@ -77,7 +77,7 @@ class MyShellRouteScreen extends StatelessWidget {
   final Widget child;
 
   int getCurrentIndex(BuildContext context) {
-    final String location = GoRouter.of(context).location;
+    final String location = GoRouterState.of(context).location;
     if (location == '/bar') {
       return 1;
     }
@@ -139,8 +139,7 @@ class LoginRoute extends GoRouteData {
   const LoginRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const LoginScreen();
+  Widget build(BuildContext context, GoRouterState state) => const LoginScreen();
 }
 
 class LoginScreen extends StatelessWidget {
